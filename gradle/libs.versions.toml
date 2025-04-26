@@ -1,12 +1,12 @@
 [versions]
-agp = "8.5.2"
+agp = "8.7.3"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
 androidx-activityCompose = "1.10.1"
 androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.2.1"
-androidx-core-ktx = "1.15.0"
+androidx-core-ktx = "1.16.0"
 androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
@@ -14,6 +14,9 @@ androidx-test-junit = "1.2.1"
 compose-multiplatform = "1.7.3"
 junit = "4.13.2"
 kotlin = "2.1.10"
+kotlinxSerializationJson = "1.7.3"
+ktorClientCoreVersion = "2.3.10"
+landscapistCoil3 = "2.4.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -28,6 +31,12 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientCoreVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCoreVersion" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientCoreVersion" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClientCoreVersion" }
+landscapist-coil3 = { module = "com.github.skydoves:landscapist-coil3", version.ref = "landscapistCoil3" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

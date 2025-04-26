@@ -1,8 +1,4 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -13,12 +9,11 @@ plugins {
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -29,13 +24,20 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            // ktor
+            implementation(libs.ktor.client.okhttp)
         }
+//        iosMain.dependencies {
+//            // ktor
+//            implementation(libs.ktor.client.darwin)
+//        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -43,8 +45,14 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
+
+            // ktor
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+
+            // skydoves coil
+            implementation(libs.landscapist.coil3)
         }
     }
 }
@@ -79,4 +87,3 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-

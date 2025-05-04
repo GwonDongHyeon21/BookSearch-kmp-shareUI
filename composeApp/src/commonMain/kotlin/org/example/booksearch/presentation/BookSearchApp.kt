@@ -78,49 +78,6 @@ fun BookSearchApp(viewModel: BookSearchUseCase) {
                     }
                 } else {
                     BookListScreen(books, isTopBar, listState, isAddBooks, viewModel)
-//                    SharedTransitionLayout {
-//                        AnimatedContent(
-//                            targetState = state,
-//                            label = "",
-//                            transitionSpec = { fadeIn() togetherWith fadeOut() }
-//                        ) {
-//                            when (it) {
-//                                is Screen.List -> {
-//                                    LazyColumn(state = listState) {
-//                                        items(books) { book ->
-//                                            BookListItem(
-//                                                book,
-//                                                this@SharedTransitionLayout,
-//                                                this@AnimatedContent
-//                                            ) {
-//                                                isTopBar = false
-//                                                state = Screen.Details(book.imageUrl, book.title)
-//                                            }
-//                                        }
-//                                        if (isAddBooks)
-//                                            item {
-//                                                Box(Modifier.fillMaxWidth()) {
-//                                                    CircularProgressIndicator(
-//                                                        modifier = Modifier.align(
-//                                                            Alignment.Center
-//                                                        )
-//                                                    )
-//                                                }
-//                                            }
-//                                    }
-//                                }
-//
-//                                is Screen.Details -> {
-//                                    BookDetailsScreen(
-//                                        it.imageUrl,
-//                                        it.title,
-//                                        this@SharedTransitionLayout,
-//                                        this@AnimatedContent
-//                                    )
-//                                }
-//                            }
-//                        }
-//                    }
                 }
             }
         }
